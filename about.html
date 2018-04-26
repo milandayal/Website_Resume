@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>About Me</title>
+        <style type="text/css">
+            
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font-family: 'Open Sans', Arial, sans-serif;
+                font-weight: 700;
+            }
+            .welcome-section {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: #000;
+                overflow: hidden;
+            }
+            .welcome-section .content-wrap {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate3d(-50%, -50%, 0);
+            }
+            .welcome-section .content-wrap .fly-in-text {
+                list-style: none;
+            }
+            .welcome-section .content-wrap .fly-in-text li {
+                display: inline-block;
+                margin-right: 30px;
+                font-size: 5em;
+                color: #fff;
+                opacity: 1;
+                transition: all 2s ease;
+            }
+            .welcome-section .content-wrap .fly-in-text li:last-child {
+                margin-right: 0;
+            }
+            .welcome-section .content-wrap .enter-button {
+                display: block;
+                text-align: center;
+                font-size: 1em;
+                text-decoration: none;
+                text-transform: uppercase;
+                color: #adff2f;
+                opacity: 1;
+                transition: all 1s ease 2s;
+            }
+            
+            .welcome-section.content-hidden .content-wrap .fly-in-text li { opacity: 0; }
+            .welcome-section.content-hidden .content-wrap .fly-in-text li:nth-child(1) { transform: translate3d(-100px, 0, 0); }
+            .welcome-section.content-hidden .content-wrap .fly-in-text li:nth-child(2) { transform: translate3d(100px, 0, 0); }
+            .welcome-section.content-hidden .content-wrap .enter-button { opacity: 0; transform: translate3d(0, -30px, 0); }
+            
+            @media (min-width: 800px) {
+                .welcome-section .content-wrap .fly-in-text li { font-size: 10em; }
+                .welcome-section .content-wrap .enter-button { font-size: 1.5em; }
+            }
+            
+            
+            
+            
+            
+@-webkit-keyframes typing { from { width: 0; } }
+@-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
+
+h1 { 
+	font: bold 300% Consolas, Monaco, monospace;
+	border-right: .1em solid black;
+	width: 16.5em; 
+	width: 21ch;
+	margin: 6em 8.5em;
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: typing 8s steps(21, end),
+	           blink-caret .5s step-end infinite alternate;
+}
+            
+            
+            * {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.bars {
+  /*   background-color:pink; */
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 101;
+  padding-top:9px;
+}
+
+.bar {
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  position: absolute;
+}
+
+span::before,
+span::after {
+  content: "";
+  display: block;
+  background-color: grey;
+  width: 100%;
+  height: 4px;
+  position: absolute;
+}
+
+.bar::before {
+  transform: translateY(-9px);
+}
+
+.bar::after {
+  transform: translateY(9px);
+}
+
+.bars.active .bar {
+  background-color: transparent;
+}
+
+.bars.active span::before {
+  animation: top-bar 1s;
+  animation-fill-mode: forwards;
+}
+
+.bars.active span::after {
+  animation: bottom-bar 1s;
+  animation-fill-mode: forwards;
+}
+
+
+/* Navbar Links CSS */
+
+#nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: all 1s;
+  z-index: -1;
+  overflow: hidden;
+  opacity: 0;
+}
+
+#nav a {
+  color: #fff;
+  text-decoration: none;
+  line-height: 70vw;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-indent: 50vw;
+  border-radius: 50%;
+  transition: all .5s;
+}
+
+#nav a:hover {
+  background: #357FFD;
+}
+
+ul {
+  list-style: none;
+}
+
+.visible {
+  z-index: 100 !important;
+  opacity: 1 !important;
+}
+
+.shape-circle {
+  border-radius: 50%;
+  width: 20vw;
+  height: 20vw;
+  top: -10vw;
+  right: -10vw;
+  position: absolute;
+  transition: all 1s ease-in-out;
+  background: #949494;
+  box-shadow: 0 0px 0px rgba(4, 26, 62, 0.5);
+}
+
+nav.visible li:first-child {
+  width: 208vw;
+  height: 200vw;
+  top: -100vw;
+  right: -100vw;
+  z-index: 5;
+  transition: all .5s ease-in-out;
+  box-shadow: 0 0px 80px rgba(4, 26, 62, 0.5);
+}
+
+nav.visible li:nth-child(2) {
+  width: 150vw;
+  height: 150vw;
+  top: -75vw;
+  right: -75vw;
+  z-index: 6;
+  transition: all .6s ease-in-out;
+  box-shadow: 0 0px 80px rgba(4, 26, 62, 0.5);
+}
+
+nav.visible li:nth-child(3){
+  width: 100vw;
+  height: 100vw;
+  top: -50vw;
+  right: -50vw;
+  z-index: 7;
+  transition: all .7s ease-in-out;
+  box-shadow: 0 0px 80px rgba(4, 26, 62, 0.5);
+}
+            
+
+nav.visible li:last-child{
+  width: 50vw;
+  height: 50vw;
+  top: -25vw;
+  right: -25vw;
+  z-index: 8;
+  transition: all .8s ease-in-out;
+  box-shadow: 0 0px 80px rgba(4, 26, 62, 0.5);
+}
+
+nav.visible li:first-child a {
+  line-height: 265vw !important;
+    text-indent: 15vw !important;
+
+}
+
+nav.visible li:nth-child(2) a {
+  line-height: 200vw !important;
+  text-indent:17vw !important;
+}
+
+nav.visible li:nth-child(3) a {
+  line-height: 137vw !important;
+    text-indent: 17vw !important;
+  
+}
+                      
+
+nav.visible li:last-child a {
+  line-height: 70vw !important;
+  text-indent:12vw !important;
+}
+            
+
+.wrapper {
+  padding: 320px;
+  width: 500px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.roles {
+    font-size: 30px;
+    height: 50px;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.roles div {
+    height: 50px;
+    transition: margin-top 1s ease-in-out;
+}
+
+ /* fonts */
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+$blue: #05aefc;
+$green: #09FC83;
+$red: #FB0044;
+
+html, 
+body {
+  background: $blue;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  perspective: 2500px;
+}
+
+.card {
+  background: #dcdcdc;
+  height: 300px;
+  width: 600px;
+  margin: 3em auto;
+  border-radius: .2em;
+  box-shadow: 0 2.5em .9em -2em #555;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  backface-visibility: hidden;
+  transition: transform .8s cubic-bezier(.63,-0.32,.4,1.39);
+}
+
+.card-flip {
+  transform: rotateY(180deg);
+}
+
+.initials {
+  display: inline-block;
+  font-family: 'Poiret One';
+  font-size: 7em;
+  color: #333;
+  font-weight: 500;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid $red;
+  margin-bottom: .5rem;
+}
+
+.initials-back {
+  font-size: 3em;
+  margin: .5em 0;
+  border-bottom: 1px solid $red;
+}
+
+.initial-1 {
+  transform: translateX(-100%); 
+}
+
+.initial-2 {
+  color: #05aefc; 
+  transform: translateX(-190%);
+}
+
+.initials-3 {
+  color: #09FC83;  
+  transform: translateX(-250%);
+}
+
+.desc {
+  font-weight: 300;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.contact {
+  text-align: center; 
+  font-weight: 300;
+  position: relative; 
+  margin: 2em 0 1em 0;
+}
+
+hr {
+  width: 30%;
+    margin-left: 210px; 
+    margin-top: 9px;
+    border-top: 2px solid #dc143c;
+}
+            
+.twitter-front {
+  width: 100%;
+  text-align: center;
+  margin-top: 1em;
+}
+
+#twitter-front {
+  color: $green;
+  text-decoration: none;
+}
+
+.links {
+  width: 80%;
+  text-align: center;
+  border-top: 1px solid $blue;
+  border-bottom: 1px solid $green;
+  margin: 0 auto;
+}
+
+.links > a {
+  margin: 0 1em;
+}
+
+#github-back {
+  height: 35px;
+  width: 35px;
+  position: relative;
+  top: -.4em;
+}
+
+#linkedin-back {
+  width: 35px;
+  height: 30px;
+  position: relative;
+  top: -.5em;
+}
+
+#email-back {
+  height: 50px;
+  width: 50px;
+}
+
+.outer-ring,
+.inner-box {
+  fill: #333;
+}
+
+#wave {
+  bottom: -1.8em;
+  position: relative;
+}
+
+#click-me {
+  color: #333;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1em;
+  animation: fade 3s infinite ease-in-out;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  
+  50% {
+    opacity: 0;
+  }
+   
+  100% {
+    opacity: 1;
+  }
+}
+                       
+}
+
+            
+            
+        </style>
+    </head>
+    <body>
+        
+        
+        <!--HamBurger Icon-->
+<div class="bars" id="nav-action">
+  <span class="bar"> </span>
+</div>
+
+<!--Navbar Links-->
+<nav id="nav">
+  <ul>
+    <li class="shape-circle circle-one content-hidden content-wrap"><a href="education.html">Education</a></li>
+    <li class="shape-circle circle-two content-hidden content-wrap"><a href="skills.html">Skills</a></li>
+    <li class="shape-circle circle-three content-hidden content-wrap"><a href="about.html">About me</a></li>
+    <li class="shape-circle circle-five">
+      <a class="content-hidden" href="index.html">Home</a>
+    </li>
+  </ul>
+</nav>
+        
+        
+        <div class="wrapper">
+  <div class="roles">
+      <div>
+          I am a web developer.
+      </div>
+    
+      <div>
+          I am a game creator.
+      </div>
+    
+      <div>
+          I am a student.
+      </div>
+    
+      <div>
+          I am an aspiring individual.
+      </div>
+      
+      <div>
+          I am a technology enthusiast.
+      </div>
+      <div>
+          I am dedicated.
+      </div>
+      <div>
+          I am creative.
+      </div>
+      <div>
+          I am curious.
+      </div>
+            
+            
+            
+            
+        
+        
+        
+        
+        
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            
+            $(function() {
+                
+                var welcomeSection = $('.welcome-section'),
+                    enterButton = welcomeSection.find('.enter-button');
+                
+                setTimeout(function() {
+                    welcomeSection.removeClass('content-hidden');
+                }, 500);
+                
+                enterButton.on('click', function(e) {
+                    e.preventDefault();
+                    welcomeSection.addClass('content-hidden').fadeOut();
+                });
+                
+                // Setting up the Variables
+var bars = document.getElementById("nav-action");
+var nav = document.getElementById("nav");
+
+
+//setting up the listener
+bars.addEventListener("click", barClicked, false);
+
+
+//setting up the clicked Effect
+function barClicked() {
+  bars.classList.toggle('active');
+  nav.classList.toggle('visible');
+}
+                
+
+var current = 1; //keeps track of the current div
+var height = $('.roles').height(); //the height of the roles div
+var numberDivs = $('.roles').children().length; //the number of children of the roles div
+var first = $('.roles div:nth-child(1)'); //the first div nested in roles div
+setInterval(function() {
+    var number = current * -height;
+    first.css('margin-top', number + 'px');
+    if (current === numberDivs) {
+        first.css('margin-top', '0px');
+        current = 1;
+    } else current++;
+}, 1500);
+                
+                
+            })();
+            
+            
+            
+            
+            
+        </script>
+
+    </body>
+</html>
